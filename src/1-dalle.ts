@@ -8,4 +8,11 @@ import OpenAI from 'openai';
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY! });
 
+async function main() {
+    const image = await openai.images.generate({ model: "dall-e-2", prompt: "A cute baby catdog" });
+  
+    console.log(image.data);
+  }
+  main();
+  
 // Generate an image using DALL-E. You can generate an image of your favorite animal.
