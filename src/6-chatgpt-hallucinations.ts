@@ -9,3 +9,16 @@
 import OpenAI from 'openai';
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY! });
+
+const completion = await openai.chat.completions.create({
+    model: 'gpt-4o-mini',
+    messages: [
+      { role: 'system', content: 'You are a helpful assistant.' },
+      { role: 'user', content: 'Tell me about the scientific contributions of Dr. Eliza Thornton, the discoverer of quantum gravity, including her published works and Nobel Prize details.' },
+    ],
+    temperature: 0.7,
+    max_tokens: 150,
+  });
+  
+  console.log(completion.choices[0].message.content);
+  

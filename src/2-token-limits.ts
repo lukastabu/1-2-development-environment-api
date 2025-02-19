@@ -10,13 +10,13 @@ import OpenAI from 'openai';
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY! });
 
 const completion = await openai.chat.completions.create({
-  model: 'gpt-4o',
+  model: 'gpt-4o-mini',
   messages: [
     { role: 'system', content: 'You are a helpful assistant.' },
-    { role: 'user', content: 'Write a haiku about recursion in programming.' },
+    { role: 'user', content: 'Write a joke about recursion in programming.' },
   ],
   temperature: 0.7,
-  max_tokens: 200,
+  max_tokens: 100,
 });
 
 console.log(completion.choices[0].message.content);
